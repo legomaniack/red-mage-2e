@@ -23,6 +23,10 @@
     "flags": {
         "red-mage": {
             "featTraits": {
+                "red-mage": {
+                    "label": "Red Mage",
+                    "description": "This trait indicated abilities from the Red Mage class"
+                },
                 "white-magic": {
                     "label": "White Magic",
                     "description": "This spell is aspected towards white magic"
