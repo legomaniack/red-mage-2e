@@ -20,6 +20,32 @@
             "name": "Jared"
         }
     ],
+    "flags": {
+        "red-mage": {
+            "featTraits": {
+                "white-magic": {
+                    "label": "White Magic",
+                    "description": "This spell is aspected towards white magic"
+                },
+                "black-magic": {
+                    "label": "Black Magic",
+                    "description": "This spell is aspected towards black magic"
+                },
+                "red-magic": {
+                    "label": "Red Magic",
+                    "description": "This spell is aspected towards both white and black magic"
+                },
+                "enchanted": {
+                    "label": "Enchanted",
+                    "description": "This attack is augmented by your stored mana"
+                },
+                "limit-break": {
+                    "label": "Limit Break",
+                    "description": "This ability channels all of your gathered power over a combat into a devastating attack"
+                }
+            }
+        }
+    },
     "minimumCoreVersion": "0.8.0",
     "compatibleCoreVersion": "9",
     "compatibility": {
