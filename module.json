@@ -21,31 +21,33 @@
         }
     ],
     "flags": {
-        "red-mage": {
-            "featTraits": {
-                "red-mage": {
-                    "label": "Red Mage",
-                    "description": "This trait indicated abilities from the Red Mage class"
-                },
-                "white-magic": {
-                    "label": "White Magic",
-                    "description": "This spell is aspected towards white magic"
-                },
-                "black-magic": {
-                    "label": "Black Magic",
-                    "description": "This spell is aspected towards black magic"
-                },
-                "red-magic": {
-                    "label": "Red Magic",
-                    "description": "This spell is aspected towards both white and black magic"
-                },
-                "enchanted": {
-                    "label": "Enchanted",
-                    "description": "This attack is augmented by your stored mana"
-                },
-                "limit-break": {
-                    "label": "Limit Break",
-                    "description": "This ability channels all of your gathered power over a combat into a devastating attack"
+        "pf2e-homebrew": {
+            "red-mage": {
+                "featTraits": {
+                    "red-mage": {
+                        "label": "Red Mage",
+                        "description": "This trait indicated abilities from the Red Mage class"
+                    },
+                    "white-magic": {
+                        "label": "White Magic",
+                        "description": "This spell is aspected towards white magic"
+                    },
+                    "black-magic": {
+                        "label": "Black Magic",
+                        "description": "This spell is aspected towards black magic"
+                    },
+                    "red-magic": {
+                        "label": "Red Magic",
+                        "description": "This spell is aspected towards both white and black magic"
+                    },
+                    "enchanted": {
+                        "label": "Enchanted",
+                        "description": "This attack is augmented by your stored mana"
+                    },
+                    "limit-break": {
+                        "label": "Limit Break",
+                        "description": "This ability channels all of your gathered power over a combat into a devastating attack"
+                    }
                 }
             }
         }
