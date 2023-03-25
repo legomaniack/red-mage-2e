@@ -5,11 +5,11 @@
     "description": "FFXIV Red Mage",
     "packs": [
         {
-            "name": "read-mage-class",
+            "name": "red-mage-class",
             "label": "Red Mage Class",
             "type": "Item",
             "system": "pf2e",
-            "path": "packs/class.db",
+            "path": "packs/red-mage-class.db",
             "entity": "Item",
             "module": "red-mage"
         }
