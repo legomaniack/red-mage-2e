@@ -1,0 +1,30 @@
+{
+    "name": "red-mage",
+    "title": "Red Mage",
+    "author": "Jared",
+    "description": "FFXIV Red Mage",
+    "packs": [
+        {
+            "name": "class",
+            "label": "Class",
+            "type": "Item",
+            "system": "pf2e",
+            "path": "packs/class.db",
+            "entity": "Item",
+            "module": "red-mage"
+        }
+    ],
+    "id": "red-mage",
+    "authors": [
+        {
+            "name": "Jared"
+        }
+    ],
+    "minimumCoreVersion": "0.8.0",
+    "compatibleCoreVersion": "9",
+    "compatibility": {
+        "minimum": 9,
+        "verified": 10
+    },
+    "version": "1.1"
+}
