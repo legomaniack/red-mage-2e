@@ -21,8 +21,8 @@
         }
     ],
     "flags": {
-        "pf2e-homebrew": {
-            "red-mage": {
+        "red-mage": {
+            "pf2e-homebrew": {
                 "featTraits": {
                     "red-mage": {
                         "label": "Red Mage",
