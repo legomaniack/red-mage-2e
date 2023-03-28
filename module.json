@@ -69,6 +69,10 @@
                     "enchanted": {
                         "label": "Enchanted",
                         "description": "This attack is augmented by your stored mana"
+                    },
+                    "strikespell": {
+                        "label": "Strikespell",
+                        "description": "This sepll is augmented by your weapon and scales like a weapon strike"
                     }
                 }
             }
