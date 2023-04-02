@@ -34,7 +34,7 @@ async function add_mana(amount, type='both') {
     }
 
     // Check mana inbalance
-    const is_unbalanced = (Math.abs(buffs.white.value - buffs.black.value) >= 11);
+    let is_unbalanced = (Math.abs(buffs.white.value - buffs.black.value) >= 11);
 
     let value = amount;
 
@@ -88,13 +88,15 @@ async function add_mana(amount, type='both') {
     }
 
     // Check inbalance again after modifying, and apply a buff icon
-    if ((Math.abs(buffs.white.value - buffs.black.value) >= 11) && !buffs.unbalanced.item) {
-        const unbalanced = await fromUuid(buffs.unbalanced.uuid);
-        await red.createEmbeddedDocuments("Item", [unbalanced]);
+    is_unbalanced = (Math.abs(buffs.white.value - buffs.black.value) >= 11)
+    if (is_unbalanced) {
+        if (!buffs.unbalanced.item) {
+            const unbalanced = await fromUuid(buffs.unbalanced.uuid);
+            await red.createEmbeddedDocuments("Item", [unbalanced]);
+        }
     } else {
         if (buffs.unbalanced.item) {
             await buffs.unbalanced.item.delete();
         }
     }
-
 }
