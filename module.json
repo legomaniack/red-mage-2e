@@ -20,6 +20,9 @@
             "name": "Jared"
         }
     ],
+    "scripts": [
+        "scripts/rdm-mana.js"
+    ],
     "flags": {
         "red-mage": {
             "pf2e-homebrew": {
