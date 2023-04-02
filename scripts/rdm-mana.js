@@ -65,7 +65,8 @@ async function add_mana(amount, type='both') {
             ((type === 'white' || type == 'both') && Math.abs(value) > buffs.white.value)  
          || ((type === 'black' || type == 'both') && Math.abs(value) > buffs.black.value) 
         ) {
-            ui.notifications.warn(`${red.name} does not have enough mana to spend ${value} ${type}!`);
+            type_string =  type != 'both' ? `${type} mana` : 'of both colors of mana'  
+            ui.notifications.warn(`${red.name} does not have enough mana to spend ${Math.abs(value)} ${type_string}!`);
             return;
         }
     }
