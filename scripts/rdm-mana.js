@@ -60,6 +60,14 @@ async function add_mana(amount, type='both') {
                 await buffs.acceleration.item.update({ system: { badge: { value:  charges_left } } });
             }
         }
+    } else if (amount < 0) {
+        if (
+            ((type === 'white' || type == 'both') && Math.abs(value) > buffs.white.value)  
+         || ((type === 'black' || type == 'both') && Math.abs(value) > buffs.black.value) 
+        ) {
+            ui.notifications.warn(`${red.name} does not have enough mana to spend ${value} ${type}!`);
+            return;
+        }
     }
 
     for (const name of ['white', 'black']) {
