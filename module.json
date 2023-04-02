@@ -6,10 +6,28 @@
     "packs": [
         {
             "name": "red-mage-class",
-            "label": "Red Mage Class",
+            "label": "Red Mage Class - Feats",
             "type": "Item",
             "system": "pf2e",
             "path": "packs/red-mage-class.db",
+            "entity": "Item",
+            "module": "red-mage"
+        },
+        {
+            "name": "red-mage-class-spells",
+            "label": "Red Mage Class - Spells",
+            "type": "Item",
+            "system": "pf2e",
+            "path": "packs/red-mage-class-spells.db",
+            "entity": "Item",
+            "module": "red-mage"
+        },
+        {
+            "name": "red-mage-class-macros",
+            "label": "Red Mage Class - Macros",
+            "type": "Macro",
+            "system": "pf2e",
+            "path": "packs/red-mage-class-feats.db",
             "entity": "Item",
             "module": "red-mage"
         }
