@@ -34,14 +34,7 @@ async function add_mana(amount, type='both') {
     }
 
     // Check mana inbalance
-    if ((Math.abs(buffs.white.value - buffs.black.value) >= 11) && !buffs.unbalanced.item) {
-        const unbalanced = await fromUuid(buffs.unbalanced.uuid);
-        await red.createEmbeddedDocuments("Item", [unbalanced]);
-    } else {
-        if (buffs.unbalanced.item) {
-            await buffs.unbalanced.item.delete();
-        }
-    }
+    const is_unbalanced = (Math.abs(buffs.white.value - buffs.black.value) >= 11);
 
     let value = amount;
 
@@ -55,7 +48,7 @@ async function add_mana(amount, type='both') {
                 await buffs.mana_boost.item.update({ system: { badge: { value:  charges_left } } });
             }
         }
-        if (buffs.unbalanced.item) {
+        if (is_unbalanced) {
             value = Math.floor(value * 0.5);
         }
         if (buffs.acceleration.value) {
@@ -94,7 +87,7 @@ async function add_mana(amount, type='both') {
         }
     }
 
-    // Check inbalance again after modifying.
+    // Check inbalance again after modifying, and apply a buff icon
     if ((Math.abs(buffs.white.value - buffs.black.value) >= 11) && !buffs.unbalanced.item) {
         const unbalanced = await fromUuid(buffs.unbalanced.uuid);
         await red.createEmbeddedDocuments("Item", [unbalanced]);
