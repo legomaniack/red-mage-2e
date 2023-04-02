@@ -14,7 +14,7 @@ async function add_mana(amount, type='both') {
             uuid: 'Item.f51I1WcHo6syF94v',
         },
         mana_boost: {
-            slug: 'mana-unbalanced',
+            slug: 'mana-boost',
         },
         acceleration: {
             slug: 'acceleration',
