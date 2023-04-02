@@ -30,7 +30,7 @@ async function add_mana(amount, type='both') {
 
     for (const name in buffs) {
         buffs[name].item = red.items.find(item => item.slug === buffs[name].slug && item.type === 'effect');
-        buffs[name].value = buffs[name].item?.badge?.value ?? 0
+        buffs[name].value = buffs[name].item?.badge?.value ?? 0;
     }
 
     // Check mana inbalance
@@ -65,7 +65,7 @@ async function add_mana(amount, type='both') {
             ((type === 'white' || type == 'both') && Math.abs(value) > buffs.white.value)  
          || ((type === 'black' || type == 'both') && Math.abs(value) > buffs.black.value) 
         ) {
-            type_string =  type != 'both' ? `${type} mana` : 'of both colors of mana'  
+            type_string =  type != 'both' ? `${type} mana` : 'of both colors of mana';
             ui.notifications.warn(`${red.name} does not have enough mana to spend ${Math.abs(value)} ${type_string}!`);
             return;
         }
