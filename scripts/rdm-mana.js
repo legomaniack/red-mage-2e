@@ -1,4 +1,4 @@
-async function add_mana(amount, type='both') {
+async function add_mana(amount, type='both', ignore_buffs=false) {
 
     const buffs = {
         white: {
@@ -39,7 +39,7 @@ async function add_mana(amount, type='both') {
     let value = amount;
 
     if (amount > 0) {
-        if (buffs.mana_boost.value) {
+        if (buffs.mana_boost.value && !ignore_buffs) {
             value = Math.floor(value * 1.5);
             const charges_left = buffs.mana_boost.item.badge.value - 1;
             if (charges_left < 1) {
@@ -51,7 +51,7 @@ async function add_mana(amount, type='both') {
         if (is_unbalanced) {
             value = Math.floor(value * 0.5);
         }
-        if (buffs.acceleration.value) {
+        if (buffs.acceleration.value && !ignore_buffs) {
             value = Math.floor(value * 2);
             const charges_left = buffs.acceleration.item.badge.value - 1;
             if (charges_left < 1) {
