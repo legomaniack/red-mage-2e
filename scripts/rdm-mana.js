@@ -1,4 +1,4 @@
-async function add_mana(amount, type='both', ignore_buffs=false) {
+async function add_mana(amount, type='both', ignore_buffs=false, ignore_inbalance=true) {
 
     const buffs = {
         white: {
@@ -48,7 +48,7 @@ async function add_mana(amount, type='both', ignore_buffs=false) {
                 await buffs.mana_boost.item.update({ system: { badge: { value:  charges_left } } });
             }
         }
-        if (is_unbalanced) {
+        if (is_unbalanced && !ignore_inbalance) {
             value = Math.floor(value * 0.5);
         }
         if (buffs.acceleration.value && !ignore_buffs) {
