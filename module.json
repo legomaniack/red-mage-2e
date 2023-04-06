@@ -14,6 +14,15 @@
             "module": "red-mage"
         },
         {
+            "name": "red-mage-class-features",
+            "label": "Red Mage Class - Class Features",
+            "type": "Item",
+            "system": "pf2e",
+            "path": "packs/red-mage-class-features.db",
+            "entity": "Item",
+            "module": "red-mage"
+        },
+        {
             "name": "red-mage-class-spells",
             "label": "Red Mage Class - Spells",
             "type": "Item",
@@ -91,9 +100,13 @@
                         "label": "Enchanted",
                         "description": "This attack is augmented by your stored mana"
                     },
+                    "colorless": {
+                        "label": "Colorless",
+                        "description": "This spell does not grant mana"
+                    },
                     "strikespell": {
                         "label": "Strikespell",
-                        "description": "This sepll is augmented by your weapon and scales like a weapon strike"
+                        "description": "This spell is augmented by your weapon and scales like a weapon strike"
                     }
                 }
             }
