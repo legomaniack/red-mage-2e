@@ -23,6 +23,15 @@
             "module": "red-mage"
         },
         {
+            "name": "red-mage-class-misc",
+            "label": "Red Mage Class - Misc",
+            "type": "Item",
+            "system": "pf2e",
+            "path": "packs/red-mage-class-misc.db",
+            "entity": "Item",
+            "module": "red-mage"
+        },
+        {
             "name": "red-mage-class-spells",
             "label": "Red Mage Class - Spells",
             "type": "Item",
