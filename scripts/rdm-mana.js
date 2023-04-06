@@ -3,15 +3,15 @@ async function add_mana(amount, type='both', ignore_buffs=false, ignore_inbalanc
     const buffs = {
         white: {
             slug: 'white-mana',
-            uuid: 'Item.IdYfqd8b3ebphG9p',
+            uuid: 'Compendium.red-mage.red-mage-class.xqjHZpiHbzzP81ix',
         },
         black: {
             slug: 'black-mana',
-            uuid: 'Item.X9KxfHo21BezGEsn',
+            uuid: 'Compendium.red-mage.red-mage-class.KSIeH0scnMZq4mP2',
         },
         unbalanced: {
             slug: 'mana-unbalanced',
-            uuid: 'Item.f51I1WcHo6syF94v',
+            uuid: 'Compendium.red-mage.red-mage-class.k391A3lF1Gc8Ayef',
         },
         mana_boost: {
             slug: 'mana-boost',
