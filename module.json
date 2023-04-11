@@ -57,7 +57,8 @@
         }
     ],
     "scripts": [
-        "scripts/rdm-mana.js"
+        "scripts/rdm-mana.js",
+        "scripts/rdm-cooldown.js"
     ],
     "flags": {
         "red-mage": {
