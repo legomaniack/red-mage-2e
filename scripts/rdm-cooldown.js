@@ -62,7 +62,7 @@ async function roll_1d4_cooldown(name) {
     const existing_buff = red.items.find(x => x.slug === `${slug}-recharge` && x.type === 'effect' && !x.isExpired)
 
     if (existing_buff) {
-        ui.notitifications.warn(`${name} is still recharging!`);
+        ui.notifications.warn(`${name} is still recharging!`);
         return;
     }
 
