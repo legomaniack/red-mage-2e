@@ -4,6 +4,12 @@ async function roll_1d4_cooldown(name) {
         {
             slug: "corps-a-corps",
             name: "Corps a Corps",
+            img: "modules/red-mage/icons/abilities/corps-a-corps.png",
+        },
+        {
+            slug: "displacement",
+            name: "Displacement",
+            img: "modules/red-mage/icons/abilities/displacement.png"
         },
         {
             slug: "bio",
@@ -81,7 +87,7 @@ async function roll_1d4_cooldown(name) {
         }
     };
 
-    const icon = red.items.find(x => x.slug === slug)?.img;
+    const icon = fancy_name?.img ?? red.items.find(x => x.slug === slug)?.img;
     if (icon) {
         updates.img = icon;
     }
