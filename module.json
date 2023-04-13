@@ -12,17 +12,7 @@
         "minimum": 10,
         "verified": "10.291"
     },
-    "relationships": {
-        "systems": [
-          {
-            "id": "pf2e",
-            "manifest": "https://github.com/foundryvtt/pf2e/releases/latest/download/system.json",
-            "compatibility": {
-              "verified": "4.10.4"
-            }
-          }
-        ]
-    },
+    "system": ["pf2e"],
     "packs": [
         {
             "name": "red-mage-class",
