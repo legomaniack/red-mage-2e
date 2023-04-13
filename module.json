@@ -19,7 +19,7 @@
             "label": "Red Mage Class - Feats",
             "type": "Item",
             "system": "pf2e",
-            "path": "packs/red-mage-class.db",
+            "path": "./packs/red-mage-class.db",
             "entity": "Item",
             "module": "red-mage"
         },
@@ -28,7 +28,7 @@
             "label": "Red Mage Class - Class Features",
             "type": "Item",
             "system": "pf2e",
-            "path": "packs/red-mage-class-features.db",
+            "path": "./packs/red-mage-class-features.db",
             "entity": "Item",
             "module": "red-mage"
         },
@@ -37,7 +37,7 @@
             "label": "Red Mage Class - Misc",
             "type": "Item",
             "system": "pf2e",
-            "path": "packs/red-mage-class-misc.db",
+            "path": "./packs/red-mage-class-misc.db",
             "entity": "Item",
             "module": "red-mage"
         },
@@ -46,7 +46,7 @@
             "label": "Red Mage Class - Spells",
             "type": "Item",
             "system": "pf2e",
-            "path": "packs/red-mage-class-spells.db",
+            "path": "./packs/red-mage-class-spells.db",
             "entity": "Item",
             "module": "red-mage"
         },
@@ -55,14 +55,14 @@
             "label": "Red Mage Class - Macros",
             "type": "Macro",
             "system": "pf2e",
-            "path": "packs/red-mage-class-feats.db",
+            "path": "./packs/red-mage-class-feats.db",
             "entity": "Item",
             "module": "red-mage"
         }
     ],
     "scripts": [
-        "scripts/rdm-mana.js",
-        "scripts/rdm-cooldown.js"
+        "./scripts/rdm-mana.js",
+        "./scripts/rdm-cooldown.js"
     ],
     "flags": {
         "red-mage": {
