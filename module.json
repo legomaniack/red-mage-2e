@@ -7,6 +7,14 @@
         "minimum": "10",
         "verified": "10.291"
     },
+    "authors": [
+        {
+            "name": "Jared"
+        },
+        {
+            "name": "Nolan"
+        }
+    ],
     "system": ["pf2e"],
     "packs": [
         {
