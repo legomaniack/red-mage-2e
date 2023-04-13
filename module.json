@@ -13,7 +13,119 @@
         "verified": "10.291"
     },
     "system": ["pf2e"],
-    
+    "packs": [
+        {
+            "name": "red-mage-class",
+            "label": "Red Mage Class - Feats",
+            "type": "Item",
+            "system": "pf2e",
+            "path": "./packs/red-mage-class.db",
+            "entity": "Item",
+            "module": "red-mage"
+        },
+        {
+            "name": "red-mage-class-features",
+            "label": "Red Mage Class - Class Features",
+            "type": "Item",
+            "system": "pf2e",
+            "path": "./packs/red-mage-class-features.db",
+            "entity": "Item",
+            "module": "red-mage"
+        },
+        {
+            "name": "red-mage-class-misc",
+            "label": "Red Mage Class - Misc",
+            "type": "Item",
+            "system": "pf2e",
+            "path": "./packs/red-mage-class-misc.db",
+            "entity": "Item",
+            "module": "red-mage"
+        },
+        {
+            "name": "red-mage-class-spells",
+            "label": "Red Mage Class - Spells",
+            "type": "Item",
+            "system": "pf2e",
+            "path": "./packs/red-mage-class-spells.db",
+            "entity": "Item",
+            "module": "red-mage"
+        },
+        {
+            "name": "red-mage-class-macros",
+            "label": "Red Mage Class - Macros",
+            "type": "Macro",
+            "system": "pf2e",
+            "path": "./packs/red-mage-class-feats.db",
+            "entity": "Item",
+            "module": "red-mage"
+        }
+    ],
+    "scripts": [
+        "./scripts/rdm-mana.js",
+        "./scripts/rdm-cooldown.js"
+    ],
+    "flags": {
+        "red-mage": {
+            "pf2e-homebrew": {
+                "featTraits": {
+                    "red-mage": {
+                        "label": "Red Mage",
+                        "description": "This trait indicated abilities from the Red Mage class"
+                    },
+                    "white-magic": {
+                        "label": "White Magic",
+                        "description": "This spell is aspected towards white magic"
+                    },
+                    "black-magic": {
+                        "label": "Black Magic",
+                        "description": "This spell is aspected towards black magic"
+                    },
+                    "red-magic": {
+                        "label": "Red Magic",
+                        "description": "This spell is aspected towards both white and black magic"
+                    },
+                    "enchanted": {
+                        "label": "Enchanted",
+                        "description": "This attack is augmented by your stored mana"
+                    },
+                    "limit-break": {
+                        "label": "Limit Break",
+                        "description": "This ability channels all of your gathered power over a combat into a devastating attack"
+                    }
+                },
+                "spellTraits": {
+                    "red-mage": {
+                        "label": "Red Mage",
+                        "description": "This trait indicated abilities from the Red Mage class"
+                    },
+                    "white-magic": {
+                        "label": "White Magic",
+                        "description": "This spell is aspected towards white magic"
+                    },
+                    "black-magic": {
+                        "label": "Black Magic",
+                        "description": "This spell is aspected towards black magic"
+                    },
+                    "red-magic": {
+                        "label": "Red Magic",
+                        "description": "This spell is aspected towards both white and black magic"
+                    },
+                    "enchanted": {
+                        "label": "Enchanted",
+                        "description": "This attack is augmented by your stored mana"
+                    },
+                    "colorless": {
+                        "label": "Colorless",
+                        "description": "This spell does not grant mana"
+                    },
+                    "strikespell": {
+                        "label": "Strikespell",
+                        "description": "This spell is augmented by your weapon and scales like a weapon strike"
+                    }
+                }
+            }
+        }
+    },
     "url": "https://github.com/legomaniack/red-mage-2e",
     "manifest": "https://raw.githubusercontent.com/legomaniack/red-mage-2e/main/module.json",
     "download": "https://github.com/legomaniack/red-mage-2e/archive/refs/heads/main.zip"
