@@ -1,7 +1,11 @@
 {
     "name": "red-mage",
     "title": "Red Mage",
-    "author": "Jared",
+    "authors": [
+        {
+            "name": "Jared"
+        }
+    ],
     "description": "FFXIV Red Mage",
     "packs": [
         {
@@ -50,12 +54,7 @@
             "module": "red-mage"
         }
     ],
-    "id": "red-mage",
-    "authors": [
-        {
-            "name": "Jared"
-        }
-    ],
+    
     
     "scripts": [
         "scripts/rdm-mana.js",
