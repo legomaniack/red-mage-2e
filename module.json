@@ -1,15 +1,28 @@
 {
-    "name": "red-mage",
+    "id": "red-mage",
     "title": "Red Mage",
-    "author": "Jared",
+    "version": "1.1",
     "description": "FFXIV Red Mage",
+    "compatibility": {
+        "minimum": "10",
+        "verified": "10.291"
+    },
+    "authors": [
+        {
+            "name": "Jared"
+        },
+        {
+            "name": "Nolan"
+        }
+    ],
+    "system": ["pf2e"],
     "packs": [
         {
             "name": "red-mage-class",
             "label": "Red Mage Class - Feats",
             "type": "Item",
             "system": "pf2e",
-            "path": "packs/red-mage-class.db",
+            "path": "./packs/red-mage-class.db",
             "entity": "Item",
             "module": "red-mage"
         },
@@ -18,7 +31,7 @@
             "label": "Red Mage Class - Class Features",
             "type": "Item",
             "system": "pf2e",
-            "path": "packs/red-mage-class-features.db",
+            "path": "./packs/red-mage-class-features.db",
             "entity": "Item",
             "module": "red-mage"
         },
@@ -27,7 +40,7 @@
             "label": "Red Mage Class - Misc",
             "type": "Item",
             "system": "pf2e",
-            "path": "packs/red-mage-class-misc.db",
+            "path": "./packs/red-mage-class-misc.db",
             "entity": "Item",
             "module": "red-mage"
         },
@@ -36,7 +49,7 @@
             "label": "Red Mage Class - Spells",
             "type": "Item",
             "system": "pf2e",
-            "path": "packs/red-mage-class-spells.db",
+            "path": "./packs/red-mage-class-spells.db",
             "entity": "Item",
             "module": "red-mage"
         },
@@ -45,20 +58,14 @@
             "label": "Red Mage Class - Macros",
             "type": "Macro",
             "system": "pf2e",
-            "path": "packs/red-mage-class-feats.db",
+            "path": "./packs/red-mage-class-feats.db",
             "entity": "Item",
             "module": "red-mage"
         }
     ],
-    "id": "red-mage",
-    "authors": [
-        {
-            "name": "Jared"
-        }
-    ],
     "scripts": [
-        "scripts/rdm-mana.js",
-        "scripts/rdm-cooldown.js"
+        "./scripts/rdm-mana.js",
+        "./scripts/rdm-cooldown.js"
     ],
     "flags": {
         "red-mage": {
@@ -122,11 +129,7 @@
             }
         }
     },
-    "minimumCoreVersion": "0.8.0",
-    "compatibleCoreVersion": "9",
-    "compatibility": {
-        "minimum": 9,
-        "verified": 10
-    },
-    "version": "1.1"
+    "url": "https://github.com/legomaniack/red-mage-2e",
+    "manifest": "https://raw.githubusercontent.com/legomaniack/red-mage-2e/main/module.json",
+    "download": "https://github.com/legomaniack/red-mage-2e/archive/refs/heads/main.zip"
 }
