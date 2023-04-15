@@ -6,6 +6,7 @@ async function create_messages(message, active_runes, type, healing=false) {
     let appended_message = "";
     let insert_pos = 0;
     let message_attr = "flavor";
+    let notes = [];
     if (['damage-roll', 'spell-attack-roll'].includes(type)) {
         const existing_notes = message.flavor.match(/<section class="roll-note">.*<\/section>/s);
         insert_pos = message.flavor.length;
@@ -23,11 +24,11 @@ async function create_messages(message, active_runes, type, healing=false) {
         label = active_runes[i].label;
         note = healing ? active_runes[i].healing : active_runes[i].message;
         if (!note) continue;
-        appended_message += `<section class="roll-note"><strong>${label}</strong> ${await TextEditor.enrichHTML(note, {rollData: message.getRollData()})}</section>`;
-        if (i < active_runes.length - 1) {
-            appended_message += "<br>";
-        }
+        notes.push(`<section class="roll-note"><strong>${label}</strong> ${await TextEditor.enrichHTML(note, {rollData: message.getRollData()})}</section>`);
+        
     }
+
+    appended_message += notes.join("<br>");
 
     message[message_attr] = message[message_attr].slice(0, insert_pos) + appended_message + message[message_attr].slice(insert_pos);
 
