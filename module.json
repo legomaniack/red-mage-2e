@@ -1,15 +1,28 @@
 {
-    "name": "red-mage",
+    "id": "red-mage",
     "title": "Red Mage",
-    "author": "Jared",
+    "version": "1.1.2",
     "description": "FFXIV Red Mage",
+    "compatibility": {
+        "minimum": "10",
+        "verified": "10.291"
+    },
+    "authors": [
+        {
+            "name": "Jared"
+        },
+        {
+            "name": "Nolan"
+        }
+    ],
+    "system": ["pf2e"],
     "packs": [
         {
             "name": "red-mage-class",
             "label": "Red Mage Class - Feats",
             "type": "Item",
             "system": "pf2e",
-            "path": "packs/red-mage-class.db",
+            "path": "./packs/red-mage-class-feats.db",
             "entity": "Item",
             "module": "red-mage"
         },
@@ -18,7 +31,7 @@
             "label": "Red Mage Class - Class Features",
             "type": "Item",
             "system": "pf2e",
-            "path": "packs/red-mage-class-features.db",
+            "path": "./packs/red-mage-class-features.db",
             "entity": "Item",
             "module": "red-mage"
         },
@@ -27,7 +40,7 @@
             "label": "Red Mage Class - Misc",
             "type": "Item",
             "system": "pf2e",
-            "path": "packs/red-mage-class-misc.db",
+            "path": "./packs/red-mage-class-misc.db",
             "entity": "Item",
             "module": "red-mage"
         },
@@ -36,29 +49,18 @@
             "label": "Red Mage Class - Spells",
             "type": "Item",
             "system": "pf2e",
-            "path": "packs/red-mage-class-spells.db",
-            "entity": "Item",
-            "module": "red-mage"
-        },
-        {
-            "name": "red-mage-class-macros",
-            "label": "Red Mage Class - Macros",
-            "type": "Macro",
-            "system": "pf2e",
-            "path": "packs/red-mage-class-feats.db",
+            "path": "./packs/red-mage-class-spells.db",
             "entity": "Item",
             "module": "red-mage"
         }
     ],
-    "id": "red-mage",
-    "authors": [
-        {
-            "name": "Jared"
-        }
+    "esmodules": [
+        "./scripts/rdm-mana.js",
+        "./scripts/rdm-cooldown.js",
+        "./scripts/rdm-damage.js"
     ],
-    "scripts": [
-        "scripts/rdm-mana.js",
-        "scripts/rdm-cooldown.js"
+    "styles": [
+        "./styles/red-mage.css"
     ],
     "flags": {
         "red-mage": {
@@ -80,9 +82,21 @@
                         "label": "Red Magic",
                         "description": "This spell is aspected towards both white and black magic"
                     },
+                    "colorless": {
+                        "label": "Colorless",
+                        "description": "This spell does not grant mana, and may also cost mana to cast."
+                    },
                     "enchanted": {
                         "label": "Enchanted",
-                        "description": "This attack is augmented by your stored mana"
+                        "description": "This attack is augmented by your stored mana. Enchanted always includes a value - using this attack costs that amount of mana of both colors as a requirement."
+                    },
+                    "enchanted-10": {
+                        "label": "Enchanted 10",
+                        "description": "This attack is augmented by your stored mana. Enchanted always includes a value - using this attack costs that amount of mana of both colors as a requirement."
+                    },
+                    "enchanted-20": {
+                        "label": "Enchanted 20",
+                        "description": "This attack is augmented by your stored mana. Enchanted always includes a value - using this attack costs that amount of mana of both colors as a requirement."
                     },
                     "limit-break": {
                         "label": "Limit Break",
@@ -96,15 +110,19 @@
                     },
                     "white-magic": {
                         "label": "White Magic",
-                        "description": "This spell is aspected towards white magic"
+                        "description": "This spell is aspected towards white magic, and grants you 5 white mana."
                     },
                     "black-magic": {
                         "label": "Black Magic",
-                        "description": "This spell is aspected towards black magic"
+                        "description": "This spell is aspected towards black magic, and grants you 5 black mana."
                     },
                     "red-magic": {
                         "label": "Red Magic",
-                        "description": "This spell is aspected towards both white and black magic"
+                        "description": "This spell is aspected towards both white and black magic, and grants you 2 mana of each color. If it includes a value, grants you that amount of mana of each color instead."
+                    },
+                    "red-magic-5": {
+                        "label": "Red Magic 5",
+                        "description": "This spell is aspected towards both white and black magic, and grants you 2 mana of each color. If it includes a value, grants you that amount of mana of each color instead."
                     },
                     "enchanted": {
                         "label": "Enchanted",
@@ -112,7 +130,19 @@
                     },
                     "colorless": {
                         "label": "Colorless",
-                        "description": "This spell does not grant mana"
+                        "description": "This spell does not grant mana. If it includes a value, it additionally costs that amount of mana of both colors as a requirement to cast."
+                    },
+                    "colorless-2": {
+                        "label": "Colorless 2",
+                        "description": "This spell does not grant mana. If it includes a value, it additionally costs that amount of mana of both colors as a requirement to cast."
+                    },
+                    "colorless-3": {
+                        "label": "Colorless 3",
+                        "description": "This spell does not grant mana. If it includes a value, it additionally costs that amount of mana of both colors as a requirement to cast."
+                    },
+                    "colorless-10": {
+                        "label": "Colorless 10",
+                        "description": "This spell does not grant mana. If it includes a value, it additionally costs that amount of mana of both colors as a requirement to cast."
                     },
                     "strikespell": {
                         "label": "Strikespell",
@@ -122,11 +152,7 @@
             }
         }
     },
-    "minimumCoreVersion": "0.8.0",
-    "compatibleCoreVersion": "9",
-    "compatibility": {
-        "minimum": 9,
-        "verified": 10
-    },
-    "version": "1.1"
+    "url": "https://github.com/legomaniack/red-mage-2e",
+    "manifest": "https://raw.githubusercontent.com/legomaniack/red-mage-2e/main/module.json",
+    "download": "https://github.com/legomaniack/red-mage-2e/archive/refs/heads/main.zip"
 }
