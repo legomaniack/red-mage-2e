@@ -36,10 +36,12 @@ async function create_messages(message, active_runes, type, healing=false) {
 }
 
 Hooks.on("renderChatMessage", async function(message) {
+    const traits = message.item?.system?.traits?.value;
+    if (!traits?.includes('hb_red-mage') || !("context" in message?.flags?.pf2e)) return;
     const domains = message.flags.pf2e.context.domains;
     const rollOptions = message.flags.pf2e.context.options;
     const type = message.flags.pf2e.type;
-    if (!(
+    if (!type || !(
        (type == 'spell-attack-roll') 
     || (type == 'spell-cast' && domains.includes('spell-dc'))
     || (type == 'damage-roll' && domains.includes('spell-damage')))){
