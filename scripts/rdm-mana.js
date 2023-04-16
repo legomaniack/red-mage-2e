@@ -102,7 +102,7 @@ async function add_mana(amount, type='both', ignore_buffs=false, ignore_inbalanc
 
         buffs[name].value = Math.min(buffs[name].value + added, red.maxMana);
 
-        log_messages.push(`${red.name} ${verb} ${math.abs(old - buffs[name].value)} ${name} mana`);
+        log_messages.push(`${red.name} ${verb} ${Math.abs(old - buffs[name].value)} ${name} mana`);
 
         if (buffs[name].value == red.maxMana) {
             log_messages.push(`${name} mana has reached its maximum!`);
