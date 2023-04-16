@@ -57,7 +57,8 @@
     "esmodules": [
         "./scripts/rdm-mana.js",
         "./scripts/rdm-cooldown.js",
-        "./scripts/rdm-damage.js"
+        "./scripts/rdm-damage.js",
+        "./scripts/rdm-add-runes.js"
     ],
     "styles": [
         "./styles/red-mage.css"

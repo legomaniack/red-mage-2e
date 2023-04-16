@@ -24,3 +24,13 @@ a.red-mage-cooldown::before {
     line-height: 1;
     text-rendering: auto;
 }
+
+section.red-mage-spell-note {
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.4em;
+    margin: 0.5em 0;
+    min-height: 1rem;
+    font-size: var(--font-size-12);
+    color: var(--color-text-dark-secondary);
+}
