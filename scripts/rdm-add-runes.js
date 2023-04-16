@@ -41,7 +41,7 @@ Hooks.on("renderChatMessage", async function(message, html) {
     if (!traits?.includes('hb_red-mage') || !("context" in message?.flags?.pf2e)) return;
     const domains = message.flags.pf2e.context.domains;
     const rollOptions = message.flags.pf2e.context.options;
-    const type = message.flags.pf2e.type;
+    const type = message.flags.pf2e.context.type;
     if (!type || !(
        (type == 'spell-attack-roll') 
     || (type == 'spell-cast' && domains.includes('spell-dc'))
