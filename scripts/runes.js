@@ -1,4 +1,4 @@
-export default runes = [
+export default [
     {
         label: "Crushing Rune", // What the bonus effect is labeled as in the message
         name: "crushing",       // camelCase name of the rune
