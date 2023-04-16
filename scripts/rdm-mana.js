@@ -74,7 +74,7 @@ async function add_mana(amount, type='both', ignore_buffs=false, ignore_inbalanc
             ((type === 'white' || type == 'both') && Math.abs(value) > buffs.white.value)  
          || ((type === 'black' || type == 'both') && Math.abs(value) > buffs.black.value) 
         ) {
-            type_string =  type != 'both' ? `${type} mana` : 'of both colors of mana';
+            const type_string =  type != 'both' ? `${type} mana` : 'of both colors of mana';
             ui.notifications.warn(`${red.name} does not have enough mana to spend ${Math.abs(value)} ${type_string}!`);
             return;
         }
@@ -85,7 +85,7 @@ async function add_mana(amount, type='both', ignore_buffs=false, ignore_inbalanc
             continue;
         }
         
-        mana = buffs[name].item;
+        let mana = buffs[name].item;
 
         let added = value;
 
@@ -174,9 +174,9 @@ Hooks.on("renderChatMessage", async function(message, html, options) {
         verb = 'Spend';
     }
 
-    let words = `${mana_color} mana`;
+    let words = `${mana_color.capitalize()} Mana`;
     if (mana_color === 'both') {
-        words = 'of both colors of mana';
+        words = 'of Both Colors of Mana';
     }
     let phrase = `${verb} ${trait_value} ${words}`
     
@@ -199,7 +199,7 @@ Hooks.on("renderChatMessage", async function(message, html, options) {
 
     // Special cases
     if (message.item.slug === 'verflare-verholy') {
-        html.find('.owner-buttons').append(`<div class="spell-button"><button class="red-mage-mana" data-mana-amount="-15" data-mana-color="${mana_color}">Spend 15 ${mana_color} mana</button></div>`)
+        html.find('.owner-buttons').append(`<div class="spell-button"><button class="red-mage-mana" data-mana-amount="-15" data-mana-color="${mana_color}">Spend 15 ${mana_color.capitalize()} Mana</button></div>`)
     }
 
     html.find('.owner-buttons').append(`<div class="spell-button"><button class="red-mage-mana" data-mana-amount="${amount}" data-mana-color="${mana_color}">${phrase}</button></div>`)
