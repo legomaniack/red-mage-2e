@@ -31,7 +31,7 @@ export default [
         healing: "You give an additional [[/r 2d6]] healing to frightened targets.",
     },
     {
-        label: "GreaterFearsome Rune",
+        label: "Greater Fearsome Rune",
         name: "greaterFearsome",
         selector: "attack",
         outcome: ["criticalSuccess"],
@@ -371,7 +371,7 @@ export default [
         healing: "Once per combat, you may reduce of the cost of any healing spell to 1 action.",
     },
     {
-        label: "GreaterImpactful Rune",
+        label: "Greater Impactful Rune",
         name: "greaterImpactful",
         selector: "attack",
         message: "",
