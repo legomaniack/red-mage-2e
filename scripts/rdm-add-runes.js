@@ -9,7 +9,7 @@ async function create_messages(message, html, active_runes, type, healing=false)
     let note_class;
     let message_attr = "flavor";
     let notes = [];
-    if (['damage-roll', 'spell-attack-roll'].includes(type)) {
+    if (['damage-roll', 'spell-attack-roll', 'damage'].includes(type)) {
         anchor = html.find('span.flavor-text').children(':last-child');
         const existing_notes = anchor?.hasClass('roll-note');
         note_class = 'roll-note';
@@ -20,13 +20,15 @@ async function create_messages(message, html, active_runes, type, healing=false)
         anchor = html.find('section.card-content');
         appended_message += "<hr>";
         note_class = 'red-mage-spell-note';
+    } else {
+        return;
     }
 
     for (let i = 0; i < active_runes.length; i++) {
-        label = active_runes[i].label;
-        note = healing ? active_runes[i].healing : active_runes[i].message;
+        const label = active_runes[i].label;
+        const note = healing ? active_runes[i].healing : active_runes[i].message;
         if (!note) continue;
-        notes.push(`<section class="${note_class}"><strong>${label}</strong> ${await TextEditor.enrichHTML(note, {rollData: message.getRollData()})}</section>`);
+        notes.push(`<section class="${note_class}"><strong>${label}</strong> ${await TextEditor.enrichHTML(note, {rollData: message.getRollData(), async: true})}</section>`);
     }
 
     appended_message += notes.join("<br>");
@@ -51,7 +53,7 @@ Hooks.on("renderChatMessage", async function(message, html) {
     
 
     if ( rollOptions.includes('feature:chirurgeon') && rollOptions.includes('healing') && type == 'damage-roll' && domains.includes('spell-damage') ){
-        await create_messages(message, html, activeRuneRules, 'damage', healing=true);
+        await create_messages(message, html, activeRuneRules, 'damage-roll', true);
         return;
     }
 
