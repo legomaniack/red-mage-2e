@@ -128,7 +128,7 @@ async function add_mana(amount, type='both', ignore_buffs=false, ignore_inbalanc
 Hooks.on("renderChatMessage", async function(message, html, options) {
     const traits = message.item?.system?.traits?.value;
     if (!traits?.includes('hb_red-mage') || !("casting" in message.flags.pf2e)) return;
-    const spell_trait = traits.find(x => x.startsWith('hb_red-magic') || x.startsWith('hb_black-magic') || x.startsWith('hb_white-magic') || x.startsWith('hb_colorless'))?.slice(3);
+    let spell_trait = traits.find(x => x.startsWith('hb_red-magic') || x.startsWith('hb_black-magic') || x.startsWith('hb_white-magic') || x.startsWith('hb_colorless'))?.slice(3);
     if (!spell_trait) return;
 
     // Swap Vercure to give jolt-like mana for chirurgeon
