@@ -67,6 +67,9 @@
         "./scripts/rdm-mana.js",
         "./scripts/rdm-cooldown.js"
     ],
+    "styles": [
+        "./styles/red-mage.css"
+    ],
     "flags": {
         "red-mage": {
             "pf2e-homebrew": {
