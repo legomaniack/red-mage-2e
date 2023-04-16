@@ -92,7 +92,15 @@
                     },
                     "enchanted": {
                         "label": "Enchanted",
-                        "description": "This attack is augmented by your stored mana"
+                        "description": "This attack is augmented by your stored mana. Enchanted always includes a value - using this attack costs that amount of mana of both colors as a requirement."
+                    },
+                    "enchanted-10": {
+                        "label": "Enchanted (10)",
+                        "description": "This attack is augmented by your stored mana. Enchanted always includes a value - using this attack costs that amount of mana of both colors as a requirement."
+                    },
+                    "enchanted-20": {
+                        "label": "Enchanted (20)",
+                        "description": "This attack is augmented by your stored mana. Enchanted always includes a value - using this attack costs that amount of mana of both colors as a requirement."
                     },
                     "limit-break": {
                         "label": "Limit Break",
@@ -106,15 +114,19 @@
                     },
                     "white-magic": {
                         "label": "White Magic",
-                        "description": "This spell is aspected towards white magic"
+                        "description": "This spell is aspected towards white magic, and grants you 5 white mana."
                     },
                     "black-magic": {
                         "label": "Black Magic",
-                        "description": "This spell is aspected towards black magic"
+                        "description": "This spell is aspected towards black magic, and grants you 5 black mana."
                     },
                     "red-magic": {
                         "label": "Red Magic",
-                        "description": "This spell is aspected towards both white and black magic"
+                        "description": "This spell is aspected towards both white and black magic, and grants you 2 mana of each color. If it includes a value, grants you that amount of mana of each color instead."
+                    },
+                    "red-magic-5": {
+                        "label": "Red Magic (5)",
+                        "description": "This spell is aspected towards both white and black magic, and grants you 2 mana of each color. If it includes a value, grants you that amount of mana of each color instead."
                     },
                     "enchanted": {
                         "label": "Enchanted",
@@ -122,7 +134,19 @@
                     },
                     "colorless": {
                         "label": "Colorless",
-                        "description": "This spell does not grant mana"
+                        "description": "This spell does not grant mana. If it includes a value, it additionally costs that amount of mana of both colors as a requirement to cast."
+                    },
+                    "colorless-2": {
+                        "label": "Colorless (2)",
+                        "description": "This spell does not grant mana. If it includes a value, it additionally costs that amount of mana of both colors as a requirement to cast."
+                    },
+                    "colorless-3": {
+                        "label": "Colorless (3)",
+                        "description": "This spell does not grant mana. If it includes a value, it additionally costs that amount of mana of both colors as a requirement to cast."
+                    },
+                    "colorless-10": {
+                        "label": "Colorless (10)",
+                        "description": "This spell does not grant mana. If it includes a value, it additionally costs that amount of mana of both colors as a requirement to cast."
                     },
                     "strikespell": {
                         "label": "Strikespell",
