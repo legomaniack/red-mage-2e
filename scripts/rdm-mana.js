@@ -155,6 +155,7 @@ async function add_mana(amount, type='both', ignore_buffs=false, ignore_inbalanc
     });
 }
 
+// Add buttons to spell casts
 Hooks.on("renderChatMessage", async function(message, html, options) {
     const traits = message.item?.system?.traits?.value;
     if (!traits?.includes('hb_red-mage') || !("casting" in message.flags.pf2e)) return;
@@ -235,6 +236,19 @@ Hooks.on("renderChatMessage", async function(message, html, options) {
     html.find('.owner-buttons').append(`<div class="spell-button"><button class="red-mage-mana" data-mana-amount="${amount}" data-mana-color="${mana_color}">${phrase}</button></div>`)
 });
 
+// Add buttons to enchanted strikes
+Hooks.on("renderChatMessage", async function(message, html, options) {
+    const context = message.flags?.pf2e?.context;
+    if (!(context?.type == 'attack-roll') || !(context?.options?.includes("enchanted")) || !(context?.domains?.includes("weapon-attack-roll"))) return;
+
+    let cost = -10;
+    if (context.options.includes("enchanted-redoublement")) cost = -20;
+
+    const phrase = `Spend ${Math.abs(cost)} of Both Colors of Mana`
+    html.find('.message-content').prepend(`<button class="red-mage-mana" style="margin: 0 0 0.35em;" data-mana-amount="${cost}" data-mana-color="both" data-enchanted="true">${phrase}</button>`)
+});
+
+// Attach functionality to buttons
 Hooks.on("ready", async function() {
     $(document).on('click', '.red-mage-mana', async function () {
         const value = $(this).data('mana-amount');
