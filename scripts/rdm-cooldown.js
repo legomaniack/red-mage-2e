@@ -1,69 +1,24 @@
-async function roll_1d4_cooldown(name) {
+async function roll_1d4_cooldown(item, actor) {
 
-    const recharge_spells = [
+    const overrides = [
         {
             slug: "corps-a-corps",
-            name: "Corps a Corps",
             img: "modules/red-mage/icons/abilities/corps-a-corps.png",
         },
         {
             slug: "displacement",
-            name: "Displacement",
             img: "modules/red-mage/icons/abilities/displacement.png"
-        },
-        {
-            slug: "bio",
-            name: "Bio",
-        },
-        {
-            slug: "contre-sixte",
-            name: "Contre Sixte",
-        },
-        {
-            slug: "dark",
-            name: "Dark",
-        },
-        {
-            slug: "fleche",
-            name: "Fleche",
-        },
-        {
-            slug: "slow-haste",
-            name: "Slow Haste",
-        },
-        {
-            slug: "stop",
-            name: "Stop",
-        },
-        {
-            slug: "verafflatus",
-            name: "Verafflatus",
-        },
-        {
-            slug: "verassize",
-            name: "Verassize",
-        },
-        {
-            slug: "verblizzard",
-            name: "Verblizzard",
-        },
-        {
-            slug: "vermedica",
-            name: "Vermedica",
         }
     ]
 
-    let slug = name.toLowerCase().replaceAll(" ", "-");
-    const fancy_name = recharge_spells.find(x => x.slug == name.toLowerCase() || x.name.toLowerCase() == name.toLowerCase());
-    
-    if (fancy_name) {
-        slug = fancy_name.slug;
-        name = fancy_name.name;
-    }
+    const buff_item = await fromUuid("Compendium.red-mage.red-mage-class-spells.rMSnzkVEXstLOzxg");
 
-    const buff = "Compendium.red-mage.red-mage-class-spells.rMSnzkVEXstLOzxg";
+    const slug = item.slug;
+    const name = item.name;
 
-    const red = game.user.character;
+    const override = overrides.find(x => x.slug == slug);
+
+    const red = actor ?? game.user.character;
 
     const existing_buff = red.items.find(x => x.slug === `${slug}-recharge` && x.type === 'effect' && !x.isExpired)
 
@@ -76,7 +31,7 @@ async function roll_1d4_cooldown(name) {
 
     await roll.toMessage(messageData={flavor:`${name} recharge`, speaker: {actor:red}});
 
-    const buff_item = await fromUuid(buff);
+    
     const new_buff = (await red.createEmbeddedDocuments("Item", [buff_item]))[0];
 
     const updates = { 
@@ -87,10 +42,23 @@ async function roll_1d4_cooldown(name) {
         }
     };
 
-    const icon = fancy_name?.img ?? red.items.find(x => x.slug === slug)?.img;
+    const icon = override?.img ?? item.img;
     if (icon) {
         updates.img = icon;
     }
 
     await new_buff.update(updates);
 }
+
+Hooks.on("ready", async function() {
+    $(document).on('click', '.red-mage-cooldown', async function () {
+        const message = game.messages.get($(this).parents('.chat-message').data('message-id'));
+        
+        const item = message?.item;
+        if (!item) return;
+
+        const actor = message?.actor;
+        
+        await roll_1d4_cooldown(item, actor);
+    });
+});
