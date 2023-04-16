@@ -102,10 +102,15 @@ async function add_mana(amount, type='both', ignore_buffs=false, ignore_inbalanc
 
         buffs[name].value = Math.min(buffs[name].value + added, red.maxMana);
 
-        log_messages.push(`${red.name} ${verb} ${Math.abs(old - buffs[name].value)} ${name} mana`);
+        const actual_change = Math.abs(old - buffs[name].value)
+
+        if (actual_change > 0) {
+            log_messages.push(`${red.name} ${verb} ${actual_change} ${name} mana`);
+        }
+        
 
         if (buffs[name].value == red.maxMana) {
-            log_messages.push(`${name} mana has reached its maximum!`);
+            log_messages.push(`${name.capitalize()} mana has reached its maximum!`);
         } 
 
         if (!mana) {
@@ -146,7 +151,7 @@ async function add_mana(amount, type='both', ignore_buffs=false, ignore_inbalanc
     ChatMessage.create({
         user: game.user._id,
         speaker: ChatMessage.getSpeaker({token: red}),
-        content: log_messages.join("\n")
+        content: log_messages.join("<br>")
     });
 }
 
