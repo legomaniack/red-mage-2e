@@ -21,6 +21,7 @@ async function add_mana(amount, type='both', ignore_buffs=false, ignore_inbalanc
         },
     }
 
+    let log_messages = [];
     const red = game.user.character;
     const feat = red.items.find(item => item.slug === 'aetherial-balance' && item.type === 'feat');
     if (!feat) {
@@ -34,7 +35,7 @@ async function add_mana(amount, type='both', ignore_buffs=false, ignore_inbalanc
     }
 
     // Check mana inbalance
-    let is_unbalanced = (Math.abs(buffs.white.value - buffs.black.value) >= 11);
+    const is_unbalanced = (Math.abs(buffs.white.value - buffs.black.value) >= 11);
 
     let value = amount;
 
@@ -79,6 +80,7 @@ async function add_mana(amount, type='both', ignore_buffs=false, ignore_inbalanc
             return;
         }
     }
+    
 
     for (const name of ['white', 'black']) {
         if (type != name && type != 'both'){
@@ -94,7 +96,17 @@ async function add_mana(amount, type='both', ignore_buffs=false, ignore_inbalanc
             added = buffs[name].value;
         }
 
+        const old = buffs[name].value;
+
+        const verb = added > 0 ? "gained" : "spent";
+
         buffs[name].value = Math.min(buffs[name].value + added, red.maxMana);
+
+        log_messages.push(`${red.name} ${verb} ${math.abs(old - buffs[name].value)} ${name} mana`);
+
+        if (buffs[name].value == red.maxMana) {
+            log_messages.push(`${name} mana has reached its maximum!`);
+        } 
 
         if (!mana) {
             const mana_obj = await fromUuid(buffs[name].uuid);
@@ -112,8 +124,8 @@ async function add_mana(amount, type='both', ignore_buffs=false, ignore_inbalanc
     }
 
     // Check inbalance again after modifying, and apply a buff icon
-    is_unbalanced = (Math.abs(buffs.white.value - buffs.black.value) >= 11)
-    if (is_unbalanced) {
+    const now_unbalanced = (Math.abs(buffs.white.value - buffs.black.value) >= 11)
+    if (now_unbalanced) {
         if (!buffs.unbalanced.item) {
             const unbalanced = await fromUuid(buffs.unbalanced.uuid);
             await red.createEmbeddedDocuments("Item", [unbalanced]);
@@ -123,6 +135,19 @@ async function add_mana(amount, type='both', ignore_buffs=false, ignore_inbalanc
             await buffs.unbalanced.item.delete();
         }
     }
+
+    if (!is_unbalanced && now_unbalanced) {
+        log_messages.push(`Mana has become unbalanced!`);
+    } else if (is_unbalanced && !now_unbalanced) {
+        log_messages.push(`Mana is no longer unbalanced!`);
+    }
+    
+
+    ChatMessage.create({
+        user: game.user._id,
+        speaker: ChatMessage.getSpeaker({token: red}),
+        content: log_messages.join("\n")
+    });
 }
 
 Hooks.on("renderChatMessage", async function(message, html, options) {
