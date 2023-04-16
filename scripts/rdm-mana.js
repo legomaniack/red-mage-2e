@@ -182,7 +182,7 @@ Hooks.on("renderChatMessage", async function(message, html, options) {
     
 
     // Double check the tags visually on varient spells to stop weirdness
-    if (message.item.isVarient) {
+    if (message.item.isVariant) {
         const text_traits = html.find('.tag').toArray().map(x => $(x).text());
         const trait_labels = {
             'white-magic': 'White Magic',
