@@ -52,15 +52,6 @@
             "path": "./packs/red-mage-class-spells.db",
             "entity": "Item",
             "module": "red-mage"
-        },
-        {
-            "name": "red-mage-class-macros",
-            "label": "Red Mage Class - Macros",
-            "type": "Macro",
-            "system": "pf2e",
-            "path": "./packs/red-mage-class-macros.db",
-            "entity": "Item",
-            "module": "red-mage"
         }
     ],
     "esmodules": [
