@@ -1,0 +1,36 @@
+a.red-mage-cooldown {
+    background: #DDD;
+    padding: 1px 4px;
+    border: 1px solid var(--color-border-dark-tertiary);
+    border-radius: 2px;
+    white-space: nowrap;
+    word-break: break-all;
+    font-weight: 500;
+    line-height: 1.6em;
+}
+
+a.red-mage-cooldown::before {
+    content: "\f6d0";
+    color: var(--color-text-dark-inactive);
+    margin-right: 0.25em;
+    font-weight: 900;
+    font-family: "Font Awesome 6 Pro";
+    text-align: center;
+    width: 1.25em;
+    -webkit-font-smoothing: antialiased;
+    display: var(--fa-display,inline-block);
+    font-style: normal;
+    font-variant: normal;
+    line-height: 1;
+    text-rendering: auto;
+}
+
+section.red-mage-spell-note {
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.4em;
+    margin: 0.5em 0;
+    min-height: 1rem;
+    font-size: var(--font-size-12);
+    color: var(--color-text-dark-secondary);
+}
