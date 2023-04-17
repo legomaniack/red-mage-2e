@@ -58,7 +58,8 @@
         "./scripts/rdm-mana.js",
         "./scripts/rdm-cooldown.js",
         "./scripts/rdm-damage.js",
-        "./scripts/rdm-add-runes.js"
+        "./scripts/rdm-add-runes.js",
+        "./scripts/rdm-spell-grants.js"
     ],
     "styles": [
         "./styles/red-mage.css"
@@ -66,6 +67,10 @@
     "flags": {
         "red-mage": {
             "pf2e-homebrew": {
+                "weaponTraits": {
+                    "red-mage": "Red Mage",
+                    "description": "This weapon is channeling a Red Mage ability"
+                },
                 "featTraits": {
                     "red-mage": {
                         "label": "Red Mage",
