@@ -66,6 +66,10 @@
     "flags": {
         "red-mage": {
             "pf2e-homebrew": {
+                "weaponTraits": {
+                    "red-mage": "Red Mage",
+                    "description": "This weapon is channeling a Red Mage ability"
+                },
                 "featTraits": {
                     "red-mage": {
                         "label": "Red Mage",
