@@ -228,6 +228,14 @@ Hooks.on("renderChatMessage", async function(message, html, options) {
         }
     }
 
+    let anchor = html.find('.owner-buttons')
+
+    if (anchor.length === 0) {
+        anchor = html.find('.card-content').after('<hr><section class="card-buttons"><section class="owner-buttons"></section></section>')
+    }
+
+    anchor = html.find('.owner-buttons')
+
     // Special cases
     if (message.item.slug === 'verflare-verholy') {
         html.find('.owner-buttons').append(`<div class="spell-button"><button class="red-mage-mana" data-mana-amount="-15" data-mana-color="${mana_color}">Spend 15 ${mana_color.capitalize()} Mana</button></div>`)
