@@ -100,7 +100,7 @@ async function add_mana(amount, type='both', ignore_buffs=false, ignore_inbalanc
 
         const verb = added > 0 ? "gained" : "spent";
 
-        buffs[name].value = Math.min(buffs[name].value + added, red.maxMana);
+        buffs[name].value = Math.min(buffs[name].value + added, red.system.redMage.maxMana);
 
         const actual_change = Math.abs(old - buffs[name].value)
 
@@ -109,7 +109,7 @@ async function add_mana(amount, type='both', ignore_buffs=false, ignore_inbalanc
         }
         
 
-        if (buffs[name].value == red.maxMana) {
+        if (buffs[name].value == red.system.redMage.maxMana) {
             log_messages.push(`${name.capitalize()} mana has reached its maximum!`);
         } 
 
